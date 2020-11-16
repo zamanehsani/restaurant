@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from resturant.forms import UserRegisterForm, UserUpdateForm, UserProfileUpdateForm
 from resturant.models import Profile
-from django.contrib.auth.models import User as auth_user
 
 def base(request):
     return render(request, 'base.html')
@@ -52,10 +51,6 @@ def register(request):
             uname = form.cleaned_data.get('username')
             messages.success(request, f'Account Created for {uname}!')
             form.save()
-            userid = auth_user.objects.last()
-            img = Profile(userid.id, userid.id)
-            print(userid.id)
-            img.save()
             return redirect('login')
     else:
         form = UserRegisterForm()

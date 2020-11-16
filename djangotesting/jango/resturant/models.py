@@ -6,9 +6,9 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user  = models.OneToOneField(User, on_delete = models.CASCADE)
     genders = (
-        ('m', 'male'),
-        ('f', 'female'),
-        ('other', 'other')
+        ('Male', 'male'),
+        ('Female', 'female'),
+        ('Other', 'other')
     )
     gender = models.CharField(max_length=50, null=True, choices=genders)
 
@@ -17,8 +17,8 @@ class Profile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
-    def save(self):
-        super().save()
+    # def save(self):
+    #     super().save()
 
         # img = Image.open(self.image.path)
 

@@ -32,7 +32,7 @@ ALLOWED_HOSTS = ["192.168.0.157","127.0.0.1",]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'resturant',
+    'resturant.apps.ResturantConfig',
     'crispy_forms',
     'django.contrib.auth',
     'django.contrib.contenttypes',
